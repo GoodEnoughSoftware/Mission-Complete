@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import link.fls.swipestack.SwipeStack;
+
 public class MainActivity extends AppCompatActivity {
 
     private FloatingActionButton addTasksFAB;
@@ -14,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SwipeStack swipeStack = (SwipeStack) findViewById(R.id.swipeStack);
+        swipeStack.setAdapter(new SwipeStackAdapter(mData));
 
         addTasksFAB = (FloatingActionButton) findViewById(R.id.add_task_fab);
         addTasksFAB.setOnClickListener(new View.OnClickListener() {
